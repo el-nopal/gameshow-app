@@ -65,8 +65,8 @@ and to use the function, you’ll pass in the phrases array as an argument when 
     <li>To use the function, you’ll get the value returned by the getRandomPhrasesArray, save it to a variable, and pass it to addPhraseToDisplay as an argument:</li>
 </ul>
 
-        "const phraseArray = getRandomPhraseAsArray(phrases);
-        addPhrasetoDisplay(phraseArray);"
+          const phraseArray = getRandomPhraseAsArray(phrases);
+          addPhrasetoDisplay(phraseArray);
 
 <b>Create a</b> checkLetter <b>function.</b>
 <ul>
