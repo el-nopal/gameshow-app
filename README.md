@@ -55,17 +55,15 @@ and to use the function, you’ll pass in the phrases array as an argument when 
     <li>Create an addPhraseToDisplay function that loops through an array of characters. Inside the loop, for each character in the array, you’ll create a list item, put the character inside of the list item, and append that list item to the #phrase ul in your HTML. If the character in the array is a letter and not a space, the function should add the class “letter” to the list item.
     </li>
     <li>You’ll need to write the addPhraseToDisplay function so that it can take any array of letters and add it to the display. To do that, the function will need to take an array as a parameter:</li>
-
+</ul>
       function addPhraseToDisplay(arr){
         // do stuff any arr that is passed in, and add to `#phrase ul`
       }
-
+<ul>
     <li>To use the function, you’ll get the value returned by the getRandomPhrasesArray, save it to a variable, and pass it to addPhraseToDisplay as an argument:</li>
-
+</ul>
       "const phraseArray = getRandomPhraseAsArray(phrases);
       addPhrasetoDisplay(phraseArray);"
-
-</ul>
 
 <b>Create a</b> checkLetter <b>function.</b>
 <ul>
