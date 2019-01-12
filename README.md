@@ -59,10 +59,11 @@ and to use the function, you’ll pass in the phrases array as an argument when 
       function addPhraseToDisplay(arr){
         // do stuff any arr that is passed in, and add to `#phrase ul`
       }
+
     <li>To use the function, you’ll get the value returned by the getRandomPhrasesArray, save it to a variable, and pass it to addPhraseToDisplay as an argument:</li>
 
-    const phraseArray = getRandomPhraseAsArray(phrases);
-    addPhrasetoDisplay(phraseArray);
+      "const phraseArray = getRandomPhraseAsArray(phrases);
+      addPhrasetoDisplay(phraseArray);"
 
 </ul>
 
