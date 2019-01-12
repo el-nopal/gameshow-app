@@ -42,13 +42,13 @@ In this project, you'll create a word guessing game. Players will click letters 
     <li>Keep in mind that you’ll need to write this function so that it is reusable-- meaning that it can take any given array of strings (with no special characters) and return an array of characters. To do that, you’ll write the function so that it takes an array as a parameter:</li>
 </ul>
 
-    function getRandomPhraseArray(arr){
-    //do stuff to any arr that is passed in
-    }
+      function getRandomPhraseArray(arr){
+      //do stuff to any arr that is passed in
+      }
 
 and to use the function, you’ll pass in the phrases array as an argument when you call the function:
 
-  getRandomPhraseAsArray(phrases);
+      getRandomPhraseAsArray(phrases);
 
 <b>Set the game display.</b>
 <ul>
@@ -56,14 +56,17 @@ and to use the function, you’ll pass in the phrases array as an argument when 
     </li>
     <li>You’ll need to write the addPhraseToDisplay function so that it can take any array of letters and add it to the display. To do that, the function will need to take an array as a parameter:</li>
 </ul>
-      function addPhraseToDisplay(arr){
-        // do stuff any arr that is passed in, and add to `#phrase ul`
-      }
+
+          function addPhraseToDisplay(arr){
+            // do stuff any arr that is passed in, and add to `#phrase ul`
+          }
+
 <ul>
     <li>To use the function, you’ll get the value returned by the getRandomPhrasesArray, save it to a variable, and pass it to addPhraseToDisplay as an argument:</li>
 </ul>
-      "const phraseArray = getRandomPhraseAsArray(phrases);
-      addPhrasetoDisplay(phraseArray);"
+
+        "const phraseArray = getRandomPhraseAsArray(phrases);
+        addPhrasetoDisplay(phraseArray);"
 
 <b>Create a</b> checkLetter <b>function.</b>
 <ul>
