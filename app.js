@@ -85,8 +85,8 @@ qwerty.addEventListener('click', (e) => {
 		button.className = 'chosen';
 		button.setAttribute('disabled', '');
 		const letter = button.textContent;
-		const letterFound = checkLetter(letter);
-		if (letterFound === null) {
+		const correct = checkLetter(letter);
+		if (correct === null) {
 			heart[missed].src = 'images/lostHeart.png';
 			button.className = 'wrong';
 			missed++;
@@ -97,10 +97,10 @@ qwerty.addEventListener('click', (e) => {
 
 // ====== checkWin function ======
 function checkWin() {
-	const totalLetters = document.querySelectorAll('.letter');
-	const shownLetters = document.querySelectorAll('.show');
+	const total = document.querySelectorAll('.letter');
+	const shown = document.querySelectorAll('.show');
 	const h3 = document.createElement('h3');
-	if (shownLetters.length === totalLetters.length) {
+	if (shown.length === total.length) {
 		overlay.className = 'win';
 		overlay.style.display = 'flex';
 		startButton.textContent = 'Go Again';
