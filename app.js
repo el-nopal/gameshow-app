@@ -5,11 +5,9 @@ let missed = 0;
 
 const startButton = document.querySelector('.btn__reset');
 const overlay = document.getElementById('overlay');
-const phraseUL = document.querySelector('#phrase ul');
-const keyboard = document.getElementById('qwerty');
-const heartList = document.querySelector('#scoreboard ol');
-const heartArray = document.querySelectorAll('.tries img');
-const heart = document.querySelector('.tries img');
+const ul = document.querySelector('#phrase ul');
+const heart = document.querySelectorAll('img');
+
 
 // ====== 5 phrases array ======
 const phrases = [
@@ -42,11 +40,11 @@ function getRandomPhraseAsArray(arr) {
 
 // ====== set game display ======
 function addPhraseToDisplay(arr) {
-	for (let i = 0; i < arr.length; i++) {
+	for (let i = 0; i < arr.length; i += 1) {
 		const li = document.createElement('li');
 		li.textContent = arr[i];
-		phraseUL.append(li);
-		const letters = /^[0-9a-zA-Z]+$/;
+		ul.append(li);
+		const letters = /^[a-z]/;
 		if (li.textContent.match(letters)) {
 			li.className = 'letter';
 		} else {
@@ -66,7 +64,7 @@ function checkLetter(letter) {
 	const letters = document.querySelectorAll('.letter');
 	let matchingLetter;
 	let matchCounter = 0;
-	for (let i = 0; i < letters.length; i++) {
+	for (let i = 0; i < letters.length; i += 1) {
 		if (letter === letters[i].textContent) {
 			letters[i].className += ' show';
 			matchingLetter = letter;
@@ -81,7 +79,7 @@ function checkLetter(letter) {
 }
 
 // ====== event listener to the keyboard ======
-keyboard.addEventListener('click', (e) => {
+qwerty.addEventListener('click', (e) => {
 	if (e.target.tagName === 'BUTTON') {
 		const button = e.target;
 		button.className = 'chosen';
@@ -89,7 +87,7 @@ keyboard.addEventListener('click', (e) => {
 		const letter = button.textContent;
 		const letterFound = checkLetter(letter);
 		if (letterFound === null) {
-			heartArray[missed].src = 'images/lostHeart.png';
+			heart[missed].src = 'images/lostHeart.png';
 			button.className = 'wrong';
 			missed++;
 		}
@@ -109,7 +107,6 @@ function checkWin() {
 		startButton.textContent = 'Play Again';
 		overlay.appendChild(h3);
 		h3.textContent = 'WINNER!';
-		showCorrectPhrase();
 	} else if (missed >= 5) {
 		removeShowClass();
 		overlay.className = 'lose';
@@ -117,39 +114,30 @@ function checkWin() {
 		startButton.textContent = 'Try Again';
 		overlay.appendChild(h3);
 		h3.textContent = 'Bummers! You Lost!';
-		showCorrectPhrase();
 	}
 }
 
 function removeShowClass() {
-	for (let i = 0; i < phraseUL.children.length; i++) {
-		phraseUL.children[i].classList.remove('show');
+	for (let i = 0; i < ul.children.length; i += 1) {
+		ul.children[i].classList.remove('show');
 	}
 }
 
-function showCorrectPhrase() {
-	const h4 = document.createElement('h4');
-	h4.textContent = 'correct answer : ' + phraseUL.textContent.toUpperCase();
-	overlay.appendChild(h4);
-}
 
 function resetGame() {
 	missed = 0;
-	while (phraseUL.firstChild) {
-		phraseUL.removeChild(phraseUL.firstChild);
+	while (ul.firstChild) {
+		ul.removeChild(ul.firstChild);
 	}
 	const h3 = document.querySelector('h3');
 	h3.parentNode.removeChild(h3);
-	const h4 = document.querySelector('h4');
-	h4.parentNode.removeChild(h4);
-
-	for (let i = 0; i < heartArray.length; i++) {
-		heartArray[i].src = 'images/liveHeart.png';
+	for (let i = 0; i < heart.length; i += 1) {
+		heart[i].src = 'images/liveHeart.png';
 	}
-	const keyboardButton = document.querySelectorAll('#qwerty button');
-	for (let i = 0; i < keyboardButton.length; i++) {
-		keyboardButton[i].classList.remove('chosen');
-		keyboardButton[i].classList.remove('wrong');
-		keyboardButton[i].removeAttribute('disabled');
+	const keyboard = document.querySelectorAll('#qwerty button');
+	for (let i = 0; i < keyboard.length; i += 1) {
+		keyboard[i].classList.remove('chosen');
+		keyboard[i].classList.remove('wrong');
+		keyboard[i].removeAttribute('disabled');
 	}
 }
