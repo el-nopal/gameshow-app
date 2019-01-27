@@ -34,8 +34,8 @@ startButton.addEventListener('click', () => {
 function getRandomPhraseAsArray(arr) {
 	const random = Math.floor(Math.random() * arr.length);
 	const randomPhrase = arr[random];
-	const characters = randomPhrase.split('');
-	return characters;
+	const splitUp = randomPhrase.split('');
+	return splitUp;
 }
 
 // ====== set game display ======
@@ -101,25 +101,17 @@ function checkWin() {
 	const shownLetters = document.querySelectorAll('.show');
 	const h3 = document.createElement('h3');
 	if (shownLetters.length === totalLetters.length) {
-		removeShowClass();
 		overlay.className = 'win';
 		overlay.style.display = 'flex';
-		startButton.textContent = 'Play Again';
+		startButton.textContent = 'Go Again';
 		overlay.appendChild(h3);
-		h3.textContent = 'WINNER!';
+		h3.textContent = 'AWESOME!';
 	} else if (missed >= 5) {
-		removeShowClass();
 		overlay.className = 'lose';
 		overlay.style.display = 'flex';
 		startButton.textContent = 'Try Again';
 		overlay.appendChild(h3);
-		h3.textContent = 'Bummers! You Lost!';
-	}
-}
-
-function removeShowClass() {
-	for (let i = 0; i < ul.children.length; i += 1) {
-		ul.children[i].classList.remove('show');
+		h3.textContent = 'BUMMERS!';
 	}
 }
 
